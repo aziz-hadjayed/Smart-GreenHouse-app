@@ -39,7 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:backgroundTint="#A8D4A3"
+        android:backgroundTint="@color/green1"
         android:text="CONTINUE TO SERVICE"
         android:textAllCaps="true"
         android:textColor="#FFFFFF" />

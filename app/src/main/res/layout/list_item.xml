@@ -1,10 +1,10 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="113dp"
     android:orientation="horizontal"
-    android:padding="10dp"
-    android:background="@color/green1">
+    android:padding="10dp">
+
 
     <!-- Texte à gauche -->
     <LinearLayout
@@ -13,22 +13,21 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
+
         <TextView
-            android:id="@+id/itemTitle"
+            android:id="@+id/itemTitleid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Title"
             android:textSize="18sp"
-
-
             android:textColor="@color/white"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/itemValue"
-            android:layout_width="50dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="70dp"
+            android:layout_marginLeft="10dp"
             android:text="Value"
             android:textSize="19sp"
             android:textColor="@android:color/darker_gray" />
@@ -39,7 +38,7 @@
         android:id="@+id/itemImage"
         android:layout_width="40dp"
         android:layout_height="100dp"
-        android:src="@drawable/lumineuse_icon"
+        android:src="@drawable/ic_launcher_foreground"
         android:layout_gravity="center_vertical"
         android:contentDescription="Icon" />
 </LinearLayout>

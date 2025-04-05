@@ -6,8 +6,9 @@
 
     <ImageView
         android:id="@+id/logoImage"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="280dp"
+        android:layout_height="180dp"
+        android:contentDescription="@string/app_name1"
         android:layout_centerInParent="true"
         android:src="@drawable/smart_greenhouse3" />
 
@@ -17,8 +18,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/logoImage"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:text="loading..."
+        android:layout_marginTop="0dp"
+        android:text="@string/loading"
         android:textSize="22sp"
         android:textStyle="bold"
         android:textColor="#505050" />

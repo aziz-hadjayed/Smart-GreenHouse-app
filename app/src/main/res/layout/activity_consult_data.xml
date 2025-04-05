@@ -6,24 +6,28 @@
 
     <!-- En-tête avec l'image et le texte -->
     <LinearLayout
+        android:id="@+id/main"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="100dp"
         android:background="@color/green2"
         android:orientation="horizontal"
         android:padding="10dp">
 
         <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/smart_greenhouse3" />
+            android:layout_width="15mm"
+            android:layout_height="15mm"
+            android:layout_marginLeft="0dp"
+            android:src="@drawable/smart_greenhouse1"/>
 
         <TextView
             android:layout_width="164dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="3mm"
             android:text="Smart Greenhouse"
             android:textColor="@android:color/white"
-            android:textSize="20sp" />
+            android:textSize="4mm"
+            android:gravity="center_vertical"/>
     </LinearLayout>
 
     <!-- Liste des données -->
@@ -31,7 +35,7 @@
         android:id="@+id/dataListView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="100dp"
         android:layout_above="@+id/footerLayout"
         android:layout_alignParentTop="true"
         android:dividerHeight="10dp" />
@@ -53,11 +57,12 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="Consult Data"
-            android:textColor="#FFFFFF"
-            android:background="@color/green1"
+            android:textColor="#505050"
 
-        android:padding="10dp" />
 
+            android:backgroundTint="@color/green2"
+
+            android:padding="10dp" />
 
         <!-- Bouton 2 -->
         <Button
@@ -66,7 +71,10 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Control"
-            android:background="@color/green2"
+
+
+
+            android:backgroundTint="@color/green2"
             android:textColor="@color/white" />
 
         <!-- Bouton 3 -->
@@ -77,7 +85,8 @@
             android:layout_weight="1"
             android:layout_marginLeft="0dp"
             android:text="Documentation"
-            android:background="@color/green2"
+
+            android:backgroundTint="@color/green2"
             android:textColor="@color/white" />
     </LinearLayout>
 </RelativeLayout>

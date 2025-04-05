@@ -1,5 +1,7 @@
 <resources>
+    <string name="app_name_complete">Smart Greenhouse</string>
     <string name="app_name">Smart</string>
     <string name="app_name1">Greenhouse</string>
     <string name="app_logo">Smart_Greenhouse</string>
+    <string name="loading">loading…</string>
 </resources>

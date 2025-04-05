@@ -1,52 +1,460 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:background="@color/white">
 
+    <!-- En-tête avec l'image et le texte -->
     <LinearLayout
+        android:id="@+id/headerLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="100dp"
+        android:background="@color/green2"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <ImageView
+            android:layout_width="15mm"
+            android:layout_height="15mm"
+            android:layout_marginLeft="0dp"
+            android:src="@drawable/smart_greenhouse1" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="164dp"
             android:layout_height="wrap_content"
-            android:text="Tableau des Conditions de Culture"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_gravity="center"
-            android:paddingBottom="16dp" />
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="3mm"
+            android:text="Smart Greenhouse"
+            android:textColor="@android:color/white"
+            android:textSize="4mm"
+            android:gravity="center_vertical" />
+    </LinearLayout>
 
-        <TableLayout
-            android:id="@+id/tableLayout"
+    <!-- Corps principal dans un ScrollView -->
+    <ScrollView
+        android:id="@+id/contentScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/headerLayout"
+        android:layout_above="@id/footerLayout"
+        android:padding="4dp"
+        android:background="@color/white">
+
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:stretchColumns="1"
-            android:background="@color/white"
-            android:padding="8dp">
+            android:orientation="vertical">
 
-            <!-- Ligne d'en-tête -->
-            <TableRow
+            <!-- titre du tableau -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="65dp"
+                android:paddingBottom="8dp"
+                android:text="Plant Documentation Table"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+
+                android:gravity="center_horizontal"
+                />
+
+
+
+            <TableLayout
+                android:id="@+id/tableLayout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:stretchColumns="1"
+                android:background="@color/white"
+                android:padding="-4dp"
+                android:layout_marginTop="10dp">
 
-                <TextView
+
+                <!-- Header row with green2 color -->
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/green2">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Plant"
+                        android:textStyle="bold"
+                        android:padding="8dp"
+                        android:textColor="@android:color/white"
+                        android:background="@color/green2"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Light    T    H_Air    H_sol    CO2"
+                        android:textStyle="bold"
+                        android:padding="8dp"
+                        android:textColor="@android:color/white" />
+                </TableRow>
+
+
+
+                <!-- Plants with alternating row colors -->
+                <TableRow
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Culture"
-                    android:textStyle="bold"
-                    android:padding="8dp" />
+                    android:background="@color/green1">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tomato"
+                        android:padding="8dp"
+                        android:textColor="@color/white"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="60 %,  25 °C,  60 %,  65 %,  500 ppm"
+                        android:padding="8dp"
+                        android:textColor="@color/white"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Conditions"
-                    android:textStyle="bold"
-                    android:padding="8dp" />
-            </TableRow>
+                    android:background="@android:color/white">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Potato"
+                        android:padding="8dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="50 %,  21 °C,  70 %,  75 %,  500 ppm"
+                        android:padding="8dp" />
+                </TableRow>
 
-        </TableLayout>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/green1">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Lettuce"
+                        android:padding="8dp"
+                        android:textColor="@color/white"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="50 %,  15 °C,  70 %,  75 %,  500 ppm"
+                        android:padding="8dp"
+                        android:textColor="@color/white"/>
+                </TableRow>
 
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Strawberry"
+                        android:padding="8dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="60 %,  20 °C,  65 %,  70 %,  500 ppm"
+                        android:padding="8dp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/green1">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bell Pepper"
+                        android:padding="8dp"
+                        android:textColor="@color/white"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="70 %,  27.5 °C,  60 %,  75 %,  500 ppm"
+                        android:padding="8dp"
+                        android:textColor="@color/white"/>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cucumber"
+                        android:padding="8dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="60 %,  26 °C,  70 %,  75 %,  500 ppm"
+                        android:padding="8dp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/green1">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Carrot"
+                        android:padding="8dp"
+                        android:textColor="@color/white"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="50 %,  20 °C,  60 %,  70 %,  500 ppm"
+                        android:padding="8dp"
+                        android:textColor="@color/white"/>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Spinach"
+                        android:padding="8dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="50 %,  16 °C,  70 %,  75 %,  500 ppm"
+                        android:padding="8dp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/green1">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Onion"
+                        android:padding="8dp"
+                        android:textColor="@color/white"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="50 %,  20 °C,  60 %,  70 %,  500 ppm"
+                        android:padding="8dp"
+                        android:textColor="@color/white"/>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Eggplant"
+                        android:padding="8dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="70 %,  27.5 °C,  60 %,  75 %,  500 ppm"
+                        android:padding="8dp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/green1">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Melon"
+                        android:padding="8dp"
+                        android:textColor="@color/white"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="70 %,  30 °C,  50 %,  65 %,  500 ppm"
+                        android:padding="8dp"
+                        android:textColor="@color/white"/>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cabbage"
+                        android:padding="8dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="60 %,  25 °C,  60 %,  65 %,  500 ppm"
+                        android:padding="8dp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/green1">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Basil"
+                        android:padding="8dp"
+                        android:textColor="@color/white"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="60 %,  25 °C,  65 %,  65 %,  500 ppm"
+                        android:padding="8dp"
+                        android:textColor="@color/white"/>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Mint"
+                        android:padding="8dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="50 %,  20 °C,  55 %,  65 %,  500 ppm"
+                        android:padding="8dp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/green1">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Coriander"
+                        android:padding="8dp"
+                        android:textColor="@color/white"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="50 %,  21.5 °C,  55 %,  65 %,  500 ppm"
+                        android:padding="8dp"
+                        android:textColor="@color/white"/>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Parsley"
+                        android:padding="8dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="50 %,  20 °C,  60 %,  70 %,  500 ppm"
+                        android:padding="8dp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/green1">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rosemary"
+                        android:padding="8dp"
+                        android:textColor="@color/white"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="60 %,  23 °C,  50 %,  65 %,  500 ppm"
+                        android:padding="8dp"
+                        android:textColor="@color/white"/>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Thyme"
+                        android:padding="8dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="60 %,  25 °C,  65 %,  60 %,  500 ppm"
+                        android:padding="8dp" />
+                </TableRow>
+
+
+
+
+
+
+            </TableLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Footer -->
+    <LinearLayout
+        android:id="@+id/footerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:background="@color/green2"
+        android:gravity="center">
+
+        <!-- Bouton 1 -->
+        <Button
+            android:id="@+id/btnConsultData"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Consult Data"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/green2"
+            android:padding="10dp" />
+
+        <!-- Bouton 2 -->
+        <Button
+            android:id="@+id/btnControl"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Control"
+            android:backgroundTint="@color/green2"
+            android:textColor="@color/white" />
+
+        <!-- Bouton 3 -->
+        <Button
+            android:id="@+id/btnDocumentation"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="0dp"
+            android:text="Documentation"
+            android:backgroundTint="@color/green2"
+            android:textColor="#505050" />
     </LinearLayout>
-</ScrollView>
+</RelativeLayout>

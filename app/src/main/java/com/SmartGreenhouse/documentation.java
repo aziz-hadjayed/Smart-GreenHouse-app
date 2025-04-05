@@ -1,66 +1,130 @@
 package com.SmartGreenhouse;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.util.Log;
-import androidx.appcompat.app.AppCompatActivity;
+import android.widget.Toast;
 
-public class documentation extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
+public class documentation extends AppCompatActivity
+{
+
+
 
     private TableLayout tableLayout;
 
+    private Button btnConsultDatajava;
+    private Button btnControljava;
+    private Button btnDocumentationjava;
+
+
+
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_documentation);
+        Window window = getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.setStatusBarColor(ContextCompat.getColor(this, R.color.green2));
+
+
+// Initialisation des widgets
+        btnConsultDatajava = findViewById(R.id.btnConsultData);
+        btnControljava = findViewById(R.id.btnControl);
+        btnDocumentationjava = findViewById(R.id.btnDocumentation);
+
+
+        // Ajouter des actions pour les boutons
+        btnConsultDatajava.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Toast.makeText(documentation.this, "Consult Data clicked!", Toast.LENGTH_SHORT).show();
+                Intent intent1 = new Intent(documentation.this, consult_data.class);
+                startActivity(intent1);
+            }
+        });
+
+        btnControljava.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(documentation.this, "Control clicked!", Toast.LENGTH_SHORT).show();
+                Intent intent1 = new Intent(documentation.this, control.class);
+                startActivity(intent1);
+            }
+        });
+
+//        btnDocumentationjava.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(documentation.this, "Documentation clicked!", Toast.LENGTH_SHORT).show();
+//                Intent intent1 = new Intent(documentation.this, documentation.class);
+//                startActivity(intent1);
+//            }
+//        });
+
+
+
 
         tableLayout = findViewById(R.id.tableLayout);
 
-        // Ajouter les données au tableau
-        addDataToTable();
+
+
+
+
+
     }
 
     private void addDataToTable() {
         // Données des cultures
-        String[][] data = {
-                {"Tomate", "Lumière : 50-70%, Température : 20-30°C, Humidité de l'air : 50-70%"},
-                {"Pomme de Terre", "Lumière : 40-60%, Température : 18-25°C, Humidité de l'air : 60-80%"},
-                {"Laitue", "Lumière : 40-60%, Température : 10-20°C, Humidité de l'air : 60-80%"},
-                {"Fraise", "Lumière : 50-70%, Température : 15-25°C, Humidité de l'air : 60-70%"},
-                {"Poivron", "Lumière : 60-80%, Température : 20-35°C, Humidité de l'air : 50-70%"},
-                {"Concombre", "Lumière : 50-70%, Température : 22-30°C, Humidité de l'air : 60-80%"},
-                {"Carotte", "Lumière : 40-60%, Température : 15-25°C, Humidité de l'air : 50-70%"},
-                {"Épinard", "Lumière : 40-60%, Température : 10-22°C, Humidité de l'air : 60-80%"},
-                {"Oignon", "Lumière : 40-60%, Température : 15-25°C, Humidité de l'air : 50-70%"},
-                {"Aubergine", "Lumière : 60-80%, Température : 20-35°C, Humidité de l'air : 50-70%"},
-                {"Melon", "Lumière : 60-80%, Température : 25-35°C, Humidité de l'air : 40-60%"},
-                {"Blé", "Lumière : 50-70%, Température : 15-25°C, Humidité de l'air : 50-70%"}
-        };
+        String[][] data =
+                {
+                        {"Tomate", "Lumière : 60%, T : 25°C, Humidité de l'air : 60%"},
+                        {"Pomme de Terre", "Lumière : 50%, Température : 21°C, Humidité de l'air : 70%"},
+                        {"Laitue", "Lumière : 50%, Température : 15°C, Humidité de l'air : 70%"},
+                        {"Fraise", "Lumière : 60%, Température : 20°C, Humidité de l'air : 65%"},
+                        {"Poivron", "Lumière : 70%, Température : 27.5°C, Humidité de l'air : 60%"},
+                        {"Concombre", "Lumière : 60%, Température : 26°C, Humidité de l'air : 70%"},
+                        {"Carotte", "Lumière : 50%, Température : 20°C, Humidité de l'air : 60%"},
+                        {"Épinard", "Lumière : 50%, Température : 16°C, Humidité de l'air : 70%"},
+                        {"Oignon", "Lumière : 50%, Température : 20°C, Humidité de l'air : 60%"},
+                        {"Aubergine", "Lumière : 70%, Température : 27.5°C, Humidité de l'air : 60%"},
+                        {"Melon", "Lumière : 70%, Température : 30°C, Humidité de l'air : 50%"},
+                        {"Blé", "Lumière : 60%, Température : 20°C, Humidité de l'air : 60%"}
+                };
 
         // Ajouter chaque ligne au tableau
         for (String[] row : data) {
             TableRow tableRow = new TableRow(this);
-            tableRow.setLayoutParams(new TableRow.LayoutParams(
-                    TableRow.LayoutParams.MATCH_PARENT,
-                    TableRow.LayoutParams.WRAP_CONTENT));
+            tableRow.setLayoutParams(
+                    new TableRow.LayoutParams(
+                            TableRow.LayoutParams.MATCH_PARENT , TableRow.LayoutParams.WRAP_CONTENT)  );
 
             // Colonne 1 : Nom de la culture
             TextView cultureTextView = new TextView(this);
             cultureTextView.setText(row[0]);
             cultureTextView.setPadding(8, 8, 8, 8);
             cultureTextView.setLayoutParams(new TableRow.LayoutParams(
-                    TableRow.LayoutParams.WRAP_CONTENT,
-                    TableRow.LayoutParams.WRAP_CONTENT));
+                    TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT)  );
 
             // Colonne 2 : Conditions
             TextView conditionTextView = new TextView(this);
             conditionTextView.setText(row[1]);
             conditionTextView.setPadding(8, 8, 8, 8);
             conditionTextView.setLayoutParams(new TableRow.LayoutParams(
-                    TableRow.LayoutParams.WRAP_CONTENT,
-                    TableRow.LayoutParams.WRAP_CONTENT));
+                    TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT)  );
 
             // Ajouter les colonnes à la ligne
             tableRow.addView(cultureTextView);

@@ -3,19 +3,27 @@ package com.SmartGreenhouse;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
-public class Activity2_premierPas extends AppCompatActivity {
+public class goto_service extends AppCompatActivity
+{
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_activity2_premier_pas);
+        setContentView(R.layout.activity_goto_service);
+        Window window = getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.setStatusBarColor(ContextCompat.getColor(this, R.color.bleu));
 
 
 
@@ -30,12 +38,15 @@ public class Activity2_premierPas extends AppCompatActivity {
 
 
         // Gestion de l'événement du bouton "CONTINUE TO SERVICE"
-        continueButton.setOnClickListener(new View.OnClickListener() {
+        continueButton.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
+            public void onClick(View c)
+            {
                 // Démarrer une nouvelle activité (par exemple, la page principale)
-                Intent intent1 = new Intent(Activity2_premierPas.this, activity_consult_data.class);
+                Intent intent1 = new Intent(goto_service.this, consult_data.class);
                 startActivity(intent1);
+
             }
         });
 
@@ -43,17 +54,15 @@ public class Activity2_premierPas extends AppCompatActivity {
 
 
         // Gestion de l'événement du bouton "CLOSE"
-        closeButton.setOnClickListener(new View.OnClickListener() {
+        closeButton.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 // Fermer l'application
                 finish();
             }
         });
-
-
-
-
 
     }
 }

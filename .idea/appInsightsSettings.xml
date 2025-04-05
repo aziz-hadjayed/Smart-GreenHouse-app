@@ -9,10 +9,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.SmartGreenhouse" />
+                  <option name="mobileSdkAppId" value="1:830321704808:android:b22815267008e81bb160dd" />
+                  <option name="projectId" value="smart-greenhouse-e8443" />
+                  <option name="projectNumber" value="830321704808" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
